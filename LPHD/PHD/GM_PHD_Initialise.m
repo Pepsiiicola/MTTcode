@@ -1,0 +1,35 @@
+%**********************************************
+%             参数初始化设置
+%**********************************************
+%场景范围
+xrange=[-1500,1500]';
+yrange=[-1500,1500]';
+s1_numTargetbirth=0;%传感器1出生目标数
+%噪声数设置
+ s1_nClutter=30;
+%前一时刻存在的高斯分量，用于第一次PHD函数循环
+s1_w_bar_k=[];
+s1_m_bar_k=[];
+s1_P_bar_k=[];
+s1_L_bar_k=[];
+%出生均值权重与协方差,用于第一次PHD函数循环
+s1_w_birth=[]; 
+s1_m_birth=[];
+s1_P_birth=[];
+s1_L_birth = [];
+w_k=[];%用于第一次PHD函数循环
+%保存PHD滤波状态用于画图
+s1_x_k_history=[];
+s1_L_k_history=[];
+fusion_x_k_history=[];
+s1_Z_Plot=[];
+%ospa参数c与p
+cutoff_c=200;
+order_p=2;
+s1_metric_history=[];%用于保存ospa指标
+%传感器检测概率
+s1_detect_prob=0.9;
+%CI融合
+fusion_x=[];
+fusion_w=[];
+fusion_P=[];

@@ -1,0 +1,32 @@
+diff a/Alg_6_2022_GA_Decen/ALG6_fusion_GA_decen.m b/Alg_6_2022_GA_Decen/ALG6_fusion_GA_decen.m	(rejected hunks)
+@@ -1,20 +1,20 @@
+ %{
+-                           分布式GA融合方法
++                           �ֲ�ʽGA�ںϷ���
+ %}
+ function [Results] = ALG6_fusion_GA_decen(Fusion_center,match_threshold,mat_weight,ID_sensor,l,mat_topo)
+ 
+-%===参数获取===
++%===������ȡ===
+ N_sensor = size( Fusion_center.Inf_recieve , 2 );
+-dir_connect = find( mat_topo(ID_sensor,:) == 1 ); % 与当前传感器直接连接
++dir_connect = find( mat_topo(ID_sensor,:) == 1 ); % �뵱ǰ������ֱ������
+ 
+-%===参数初始化===
+-Matched_GM = struct;      % 匹配GM集合
+-Matched_GM.gm =cell(4,1); % 每一个gm中代表一组匹配上的gm粒子组
+-% Matched_GM.id = [0];    % 每个gm粒子对应的传感器ID
+-cnt_matchedGm = 0;        % 匹配粒子对计数
++%===������ʼ��===
++Matched_GM = struct;      % ƥ��GM����
++Matched_GM.gm =cell(4,1); % ÿһ��gm�д���һ��ƥ���ϵ�gm������
++% Matched_GM.id = [0];    % ÿ��gm���Ӷ�Ӧ�Ĵ�����ID
++cnt_matchedGm = 0;        % ƥ�����ӶԼ���
+ 
+-%=== 找到第一个非空集合赋值给Match_part1 ===
+-ID_record = 0; % 第一个Match_part1对应的传感器ID
++%=== �ҵ���һ���ǿռ��ϸ�ֵ��Match_part1 ===
++ID_record = 0; % ��һ��Match_part1��Ӧ�Ĵ�����ID
+ for i = 1:size(Fusion_center.Inf_recieve,2)
+     if Fusion_center.Inf_recieve(i).gm_particles{4,1} ~= 0
+         Match_part1 = Fusion_center.Inf_recieve(i).gm_particles;
